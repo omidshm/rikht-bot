@@ -17,6 +17,9 @@ i = 0
 alert_sens = 200
 sudo_id = 1324884291
 channel_id = -1001728669440
+
+bot.send_message(text='bot was started!', chat_id=sudo_id)
+
 while True:
     try:
         r = req.get(url)
