@@ -14,7 +14,7 @@ bot = telegram.Bot(token='2059581474:AAGvXelK7C2pwaOgO5dmFLfAKSruJxR8yqE')
 tz = pytz.timezone('Asia/Tehran')
 
 i = 0
-alert_sens = 200
+alert_sens = 10
 sudo_id = 1324884291
 channel_id = -1001728669440
 while True:
@@ -30,17 +30,16 @@ while True:
 
       if abs_ekhtelaf > alert_sens:
         now = datetime.datetime.now(tz)
-        payload = now.strftime('%b %d \n%H:%M (Tehran)')
+        payload = now.strftime('%b %d \n%H:%M')
         if ekhtelaf < 0:
-          payload = f'{payload} \n🟢 Pumped Over 200$ \n💎 ${price}\n- @riikht'
+          payload = f'{payload} \n🟢 {round(abs_ekhtelaf)}$ جهید \n💎 {price}$\n- @riikht'
         else:
-          payload = f'{payload} \n🔴 Crashed Over 200$ \n💎 ${price}\n- @riikht'
-        bot.send_message(text=payload, chat_id=channel_id)
+          payload = f'{payload} \n🔴 {round(abs_ekhtelaf)}$ ریخت \n💎 {price}$\n- @riikht'
         prev_pos = price
+        bot.send_message(text=payload, chat_id=sudo_id)
     else:
       i = 1
       prev_pos = price
-
   except req.ConnectionError as e:
     bot.send_message(text=str(e), chat_id=sudo_id)
 
