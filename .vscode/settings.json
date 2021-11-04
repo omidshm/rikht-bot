@@ -1,4 +1,4 @@
 {
   "python.pythonPath": "C:\\Users\\omido\\.virtualenvs\\omido-Qv3hVsF1\\Scripts\\python.exe",
-  "python.formatting.provider": "yapf"
+  "python.formatting.provider": "autopep8"
 }
