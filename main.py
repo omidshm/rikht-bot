@@ -15,6 +15,7 @@ tz = pytz.timezone('Asia/Tehran')
 
 i = 0
 alert_sens = 200
+loop = 0
 sudo_id = 1324884291
 channel_id = -1001728669440
 
@@ -29,8 +30,10 @@ while True:
 
             ekhtelaf = prev_pos - price
             abs_ekhtelaf = abs(ekhtelaf)
+            rounded_abs_ekh = round(abs_ekhtelaf)
 
             if abs_ekhtelaf > alert_sens:
+
                 now = datetime.datetime.now(tz)
                 payload = now.strftime('%b %d \n%H:%M (Tehran)')
                 changes = int(round(abs_ekhtelaf, -2))
@@ -41,6 +44,7 @@ while True:
                 prev_pos = price
                 bot.send_message(text=payload, chat_id=channel_id,
                                  parse_mode=telegram.ParseMode.MARKDOWN)
+                loop += 1
         else:
             i = 1
             prev_pos = price
