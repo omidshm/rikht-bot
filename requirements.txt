@@ -2,3 +2,4 @@ requests==2.25.1
 ujson==4.0.2
 python-telegram-bot==13.7
 pytz==2021.1
+psutil
