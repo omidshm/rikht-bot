@@ -18,5 +18,5 @@ def ConvertSectoDay(num):
     return result
 
 
-def get_timezone():
+def get_uptime():
     return ConvertSectoDay(time.monotonic())

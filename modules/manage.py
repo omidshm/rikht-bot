@@ -1,6 +1,6 @@
-from telegram.ext import CommandHandler
-from telegram.ext import Updater
+from telegram.ext import CommandHandler, Updater
 import psutil
+from utils import get_uptime
 
 
 updater = Updater(
@@ -10,7 +10,7 @@ dispatcher = updater.dispatcher
 
 
 def status(update, context):
-    payload = f'Bot is running\nCPU usage: {psutil.cpu_percent(4)}%\nRam Usage: {psutil.virtual_memory()[2]}%\nUptime: '
+    payload = f'Bot is running\nCPU usage: {psutil.cpu_percent(4)}%\nRam Usage: {psutil.virtual_memory()[2]}%\nUptime: {get_uptime()}'
     context.bot.send_message(
         chat_id=update.effective_chat.id, text=payload)
 
