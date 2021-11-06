@@ -1,11 +1,18 @@
 # import modules
 
-import json
 import requests as req
 import time
 import datetime
 import pytz
 import telegram
+from telegram.ext import CommandHandler, Updater
+from modules import manage
+
+# set update dispatcher
+updater = Updater(
+    token='2059581474:AAGvXelK7C2pwaOgO5dmFLfAKSruJxR8yqE', use_context=True)
+
+dispatcher = updater.dispatcher
 
 url = 'https://api3.binance.com/api/v3/ticker/price?symbol=BTCUSDT'
 bot = telegram.Bot(token='2059581474:AAGvXelK7C2pwaOgO5dmFLfAKSruJxR8yqE')
@@ -14,12 +21,17 @@ bot = telegram.Bot(token='2059581474:AAGvXelK7C2pwaOgO5dmFLfAKSruJxR8yqE')
 tz = pytz.timezone('Asia/Tehran')
 
 i = 0
-alert_sens = 200
+alert_sens = 10
 loop = 0
 sudo_id = 1324884291
 channel_id = -1001728669440
 
 bot.send_message(text='bot was started!', chat_id=sudo_id)
+
+start_handler = CommandHandler('status', manage.status)
+dispatcher.add_handler(start_handler)
+
+updater.start_polling()
 
 while True:
     try:
@@ -42,7 +54,7 @@ while True:
                 else:
                     payload = f'{payload} \n🔴‎ *{changes}$ ریخت* \n💎 *{price}$*\n- @riikht'
                 prev_pos = price
-                bot.send_message(text=payload, chat_id=channel_id,
+                bot.send_message(text=payload, chat_id=sudo_id,
                                  parse_mode=telegram.ParseMode.MARKDOWN)
                 loop += 1
         else:
