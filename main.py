@@ -56,7 +56,6 @@ while True:
                 prev_pos = price
                 bot.send_message(text=payload, chat_id=sudo_id,
                                  parse_mode=telegram.ParseMode.MARKDOWN)
-                loop += 1
         else:
             i = 1
             prev_pos = price
