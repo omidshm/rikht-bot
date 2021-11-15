@@ -31,16 +31,11 @@ channel_id = -1001728669440
 
 bot.send_message(text='bot was started!', chat_id=sudo_id)
 
-def get_sens(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=f'sens is {globals.alert_sens}')
-
 status_handler = CommandHandler('status', manage.status)
 sens_handler = CommandHandler('sens', manage.set_sens)
-get_sens_handler = CommandHandler('getsens', get_sens)
 
 dispatcher.add_handler(status_handler)
 dispatcher.add_handler(sens_handler)
-dispatcher.add_handler(get_sens_handler)
 
 updater.start_polling()
 
