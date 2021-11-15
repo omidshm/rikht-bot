@@ -3,4 +3,4 @@
 
 def initialize():
     global alert_sens
-    alert_sens = 10
+    alert_sens = 200
