@@ -20,3 +20,12 @@ def ConvertSectoDay(num):
 
 def get_uptime():
     return ConvertSectoDay(time.monotonic())
+
+
+# validate a input sens /sens 200
+def validate_sens(sens):
+    try:
+        return int(sens)
+    except:
+        return False
+

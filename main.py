@@ -5,8 +5,11 @@ import time
 import datetime
 import pytz
 import telegram
+import globals
 from telegram.ext import CommandHandler, Updater
 from modules import manage
+
+globals.initialize()
 
 # set update dispatcher
 updater = Updater(
@@ -20,16 +23,19 @@ bot = telegram.Bot(token='2059581474:AAGvXelK7C2pwaOgO5dmFLfAKSruJxR8yqE')
 
 tz = pytz.timezone('Asia/Tehran')
 
+
 i = 0
-alert_sens = 10
 loop = 0
 sudo_id = 1324884291
 channel_id = -1001728669440
 
 bot.send_message(text='bot was started!', chat_id=sudo_id)
 
-start_handler = CommandHandler('status', manage.status)
-dispatcher.add_handler(start_handler)
+status_handler = CommandHandler('status', manage.status)
+sens_handler = CommandHandler('sens', manage.set_sens)
+
+dispatcher.add_handler(status_handler)
+dispatcher.add_handler(sens_handler)
 
 updater.start_polling()
 
@@ -44,7 +50,7 @@ while True:
             abs_ekhtelaf = abs(ekhtelaf)
             rounded_abs_ekh = round(abs_ekhtelaf)
 
-            if abs_ekhtelaf > alert_sens:
+            if abs_ekhtelaf > globals.alert_sens:
 
                 now = datetime.datetime.now(tz)
                 payload = now.strftime('%b %d \n%H:%M (Tehran)')
@@ -56,7 +62,6 @@ while True:
                 prev_pos = price
                 bot.send_message(text=payload, chat_id=sudo_id,
                                  parse_mode=telegram.ParseMode.MARKDOWN)
-                loop += 1
         else:
             i = 1
             prev_pos = price
