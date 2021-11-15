@@ -60,7 +60,7 @@ while True:
                 else:
                     payload = f'{payload} \n🔴‎ *{changes}$ ریخت* \n💎 *{price}$*\n- @riikht'
                 prev_pos = price
-                bot.send_message(text=payload, chat_id=sudo_id,
+                bot.send_message(text=payload, chat_id=channel_id,
                                  parse_mode=telegram.ParseMode.MARKDOWN)
         else:
             i = 1
