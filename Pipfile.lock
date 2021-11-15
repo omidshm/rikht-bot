@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8273097a86362af3ea6ffe04442a41c1a5da2cf5fe7447ce843c58fe4bf6e230"
+            "sha256": "8017ba18f12906089565d7ad9ead7b354c8a4a61778ae3d11eae23215cf9b8ac"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -122,18 +122,18 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:899d27ec8104a68d4ba813b1afd66708a1a10e9391e79be92c8c60f9c77d05e5",
-                "sha256:dedb38ba61844d9df36072dad313cb79426fd50497aaac9c0da4cd50dbeeb110"
+                "sha256:03d8ad01799a10c6e867ff105fdd11335712be79a1b29d47d1d3b00132e78d5f",
+                "sha256:17b9c0f82402081585e0a99343b563efa5eb2d0b958a172e1aa2c515fa47425b"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==59.0.1"
+            "version": "==59.1.0"
         },
         "six": {
             "hashes": [
                 "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
                 "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==1.16.0"
         },
         "tornado": {

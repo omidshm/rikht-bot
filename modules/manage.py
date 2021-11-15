@@ -1,5 +1,5 @@
 import psutil
-from utils import get_uptime
+from modules.utils import get_uptime
 
 
 def status(update, context):
