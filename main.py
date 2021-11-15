@@ -56,9 +56,9 @@ while True:
                 payload = now.strftime('%b %d \n%H:%M (Tehran)')
                 changes = int(round(abs_ekhtelaf, -2))
                 if ekhtelaf < 0:
-                    payload = f'{payload} \n🟢‎ *{changes}$ جهید* \n💎 *{price}$*\n- @riikht'
+                    payload = f'🟢‎ *{changes}$ جهید* \n💎 *{price}$*\n{payload} \n- @riikht'
                 else:
-                    payload = f'{payload} \n🔴‎ *{changes}$ ریخت* \n💎 *{price}$*\n- @riikht'
+                    payload = f'🔴‎ *{changes}$ ریخت* \n💎 *{price}$*\n{payload} \n- @riikht'
                 prev_pos = price
                 bot.send_message(text=payload, chat_id=channel_id,
                                  parse_mode=telegram.ParseMode.MARKDOWN)
